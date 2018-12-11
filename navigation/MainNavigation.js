@@ -5,7 +5,12 @@ import { headerStyles } from "./config";
 
 const MainNavigation = createStackNavigator(
   {
-    Tabs: { screen: TabNavigation, navigationOptions: { header: null } },
+    Tabs: {
+      screen: TabNavigation,
+      navigationOptions: {
+        header: null
+      }
+    },
     Detail: {
       screen: DetailScreen,
       navigationOptions: {
@@ -13,7 +18,10 @@ const MainNavigation = createStackNavigator(
       }
     }
   },
-  {}
+  {
+    headerMode: "screen",
+    headerBackTitleVisible: false
+  }
 );
 
 export default createAppContainer(MainNavigation);
