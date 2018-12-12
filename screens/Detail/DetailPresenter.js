@@ -30,6 +30,7 @@ const BgImage = styled.Image`
 const Content = styled.View`
   flex: 1;
   flex-direction: row;
+  width: 80%;
   align-items: flex-end;
   padding-horizontal: 20px;
   height: ${Layout.height / 3.5};
