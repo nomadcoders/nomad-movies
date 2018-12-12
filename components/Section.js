@@ -18,14 +18,19 @@ const ScrollView = styled.ScrollView`
   padding-left: 20px;
 `;
 
-const Section = ({ title, children }) => (
+const Section = ({ title, children, horizontal = true }) => (
   <Container>
     <Title>{title}</Title>
-    <ScrollView horizontal>{children}</ScrollView>
+    <ScrollView horizontal={horizontal}>{children}</ScrollView>
   </Container>
 );
 
 Section.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]),
+  horizontal: PropTypes.bool,
   title: PropTypes.string.isRequired
 };
 
