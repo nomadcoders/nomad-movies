@@ -44,47 +44,53 @@ export default class extends React.Component {
     try {
       if (isMovie) {
         ({
-          genres,
-          overview,
-          status,
-          release_date: date,
-          backdrop_path: backgroundPhoto
+          data: {
+            genres,
+            overview,
+            status,
+            release_date: date,
+            backdrop_path: backgroundPhoto
+          }
         } = await movies.getMovie(id));
       } else {
         ({
-          genres,
-          overview,
-          status,
-          first_air_date: date,
-          backdrop_path: backgroundPhoto
+          data: {
+            genres,
+            overview,
+            status,
+            first_air_date: date,
+            title: name,
+            backdrop_path: backgroundPhoto
+          }
         } = await tv.getShow(id));
       }
     } catch (error) {
       console.log(error);
     } finally {
-      this.setState(prev => {
-        return {
-          ...prev,
-          loading: false,
-          genres,
-          backgroundPhoto,
-          overview,
-          status,
-          date
-        };
+      this.setState({
+        loading: false,
+        genres,
+        backgroundPhoto,
+        overview,
+        status,
+        date
       });
     }
   }
 
   render() {
     const {
+      isMovie,
       id,
       posterPhoto,
       backgroundPhoto,
       title,
       voteAvg,
       overview,
-      loading
+      loading,
+      date,
+      status,
+      genres
     } = this.state;
     return (
       <DetailPresenter
@@ -95,6 +101,10 @@ export default class extends React.Component {
         voteAvg={voteAvg}
         overview={overview}
         loading={loading}
+        date={date}
+        status={status}
+        isMovie={isMovie}
+        genres={genres}
       />
     );
   }
