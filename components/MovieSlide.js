@@ -91,7 +91,15 @@ const MovieSlide = ({
           onPress={() =>
             navigation.navigate({
               routeName: "Detail",
-              params: { isMovie: true, id }
+              params: {
+                isMovie: true,
+                id,
+                posterPhoto,
+                backgroundPhoto,
+                title,
+                voteAvg,
+                overview
+              }
             })
           }
         >
