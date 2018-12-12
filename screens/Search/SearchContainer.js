@@ -15,6 +15,14 @@ export default class extends React.Component {
     });
   };
 
+  onSubmitEditing = () => {
+    const { searchTerm } = this.state;
+    if (searchTerm !== "") {
+      alert("Searching");
+      return;
+    }
+  };
+
   render() {
     const { loading, movieResults, tvResults, searchTerm } = this.state;
     return (
@@ -23,6 +31,7 @@ export default class extends React.Component {
         movieResults={movieResults}
         tvResults={tvResults}
         searchTerm={searchTerm}
+        onSubmitEditing={this.onSubmitEditing}
         handleSearchUpdate={this.handleSearchUpdate}
       />
     );
