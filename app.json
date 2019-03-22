@@ -21,11 +21,17 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "co.nomadcoders.movieapp",
+      "buildNumber": "1.0.0"
     },
     "androidStatusBar": {
       "barStyle": "light-content",
       "backgroundColor": "#000"
+    },
+    "android": {
+      "package": "co.nomadcoders.nomad_movies",
+      "versionCode": 1
     }
   }
 }
